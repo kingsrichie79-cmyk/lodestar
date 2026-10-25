@@ -183,7 +183,7 @@ const POLICY_RATE_LIMIT_WINDOW_MS = 60_000;
 router.get(
   '/agents/:address/policy',
   requireAgentsContract,
-  writeRateLimiter(POLICY_RATE_LIMIT_MAX, POLICY_RATE_LIMIT_WINDOW_MS),
+  writeRateLimiter(POLICY_RATE_LIMIT_MAX, POLICY_RATE_LIMIT_WINDOW_MS, 'rl:agent-policy:'),
   async (req, res) => {
   try {
     const { address } = req.params;
